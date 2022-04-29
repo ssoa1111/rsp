@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+body{width: 70%; margin: auto; display: flex; flex-flow: column;}
+ul{
+    display: flex;
+}
+ul li{
+    width: 50%;
+    text-align: center;
+    padding: 20px 0;
+    font-weight: bold;
+}
+ul li:nth-child(2){
+    color: red;
+}
+.total-image{
+    display: flex;
+    justify-content: space-between;
+    height: 300px;
+    border: 2px solid #333;
+    background: #333;
+}
+.total-image img{
+    width: 100%;
+    max-width: 100%;
+}
+.total-image div:nth-child(2) img{
+    /* 유저 이미지 반전 */
+    transform: scaleX(-1);
+}
+#result{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.selecButton{
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+}
+.selecButton button{
+    background: #333;
+    color: #fff;
+    width: 15%;
+}
+button{
+    padding: 5px 20px;
+    margin: 0 10px 20px;
+}
+#reset{
+    width: 20%;
+    margin: 0 auto;
+    background: darkcyan;
+    color: #fff;
+}

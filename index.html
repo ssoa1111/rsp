@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버튼으로 가위바위보하기</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <ul>
+    <li>COM</li>
+    <li>USER</li>
+  </ul>
+  <div class="total-image">
+    <div id="com"></div>
+    <div id="user"></div>
+  </div>
+  <div class="selecButton">
+    <button onclick="selectUser(1)">가위</button>
+    <button onclick="selectUser(2)">바위</button>
+    <button onclick="selectUser(3)">보</button>
+  </div>
+  <button onclick="resetGame()" id="reset">다시하기</button>
+  <div id="result"></div>
+  
+  <script>
+    resetGame();
+    function selectUser(num){
+      switch(num){
+        case 1:
+          num = 1;
+          break;
+        case 2:
+          num = 2;
+          break;
+        case 3:
+          num = 3;
+          break;
+      }
+
+      // 랜덤한 값을 올림을 얻는다
+      random = Math.ceil(Math.random()*3);
+      document.getElementById('com').innerHTML = '<img src="images/math_img_' + random + '.jpg">'
+        
+      //가위바위보 비교 연산
+      if (num == random) {
+        document.getElementById('result').innerHTML = '비겼습니다.';
+      } else if ((num == random + 1) || (num == 1 && random == 3)) {
+        document.getElementById('result').innerHTML = '이겼습니다.'
+      } else {
+        document.getElementById('result').innerHTML = '졌습니다.';
+      }
+      document.getElementById('user').innerHTML = '<img src="images/math_img_' + num + '.jpg">'
+      document.getElementById('result').style.display = 'block';
+    }
+
+    function resetGame(){
+      let random = 0;
+      let num = 0;
+      document.getElementById('com').innerHTML = '<img src="images/math_img_' + random + '.jpg">'
+      document.getElementById('user').innerHTML = '<img src="images/math_img_' + num + '.jpg">'
+      document.querySelector('#user img').style.transform = 'none';
+      document.getElementById('result').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
